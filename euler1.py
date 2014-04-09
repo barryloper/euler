@@ -5,12 +5,11 @@ def euler1(top=1000, facts=(3, 5)):
     list_of_multiples = []
     for f in facts:
         g = [f*i for i in range(1,int(top/f)+1)]
-        if g[len(g)-1] == 1000: g.pop()
+        if g[len(g)-1] == top: g.pop() #To make this return < top instead of <= top
         list_of_multiples += [x for x in g if x not in list_of_multiples]
 
     tot = 0
     for m in list_of_multiples:
-        #print "%d + %d" % (tot, m)
         tot = tot + m
 
     return tot
